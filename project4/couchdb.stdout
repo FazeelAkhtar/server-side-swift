@@ -1,0 +1,98 @@
+
+Apache CouchDB 1.6.0 (LogLevel=info) is starting.
+Apache CouchDB has started. Time to relax.
+[info] [<0.33.0>] Apache CouchDB has started on http://0.0.0.0:5984/
+[info] [<0.169.0>] Opening index for db: forum idx: _design/forum sig: "4f7877cf061e342a6d09e6cb560b69b2"
+[info] [<0.99.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.103.0>] 127.0.0.1 - - GET /forum/%20songs 404
+[info] [<0.100.0>] 127.0.0.1 - - GET /forum/%20videos 404
+[info] [<0.189.0>] 127.0.0.1 - - GET /forum/videos 200
+[info] [<0.102.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="videos"&descending=true 200
+[info] [<0.158.0>] 127.0.0.1 - - GET /forum/%20songs 404
+[info] [<0.112.0>] 127.0.0.1 - - GET /forum/%20videos 404
+[info] [<0.265.0>] 127.0.0.1 - - GET /forum/%20videos 404
+[info] [<0.275.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.390.0>] 127.0.0.1 - - GET /forum/videos 200
+[info] [<0.178.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="videos"&descending=true 200
+[info] [<0.393.0>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.394.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.114.0>] 127.0.0.1 - - GET /forum/videos 200
+[info] [<0.104.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="videos"&descending=true 200
+[info] [<0.264.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.386.0>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.278.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.410.0>] 127.0.0.1 - - GET /forum/videos 200
+[info] [<0.411.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="videos"&descending=true 200
+[info] [<0.400.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.110.0>] 127.0.0.1 - - GET /forum/videos 200
+[info] [<0.109.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="videos"&descending=true 200
+[info] [<0.1849.0>] 127.0.0.1 - - GET /forum/videos 200
+[info] [<0.1853.0>] 127.0.0.1 - - GET /forum/example_message_3 200
+[info] [<0.1852.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_3" 200
+[info] [<0.113.0>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.399.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.18135.2>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18138.2>] 127.0.0.1 - - GET /forum/example_message_1 200
+[info] [<0.18139.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_1" 200
+[info] [<0.1864.0>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.1865.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.18165.2>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18166.2>] 127.0.0.1 - - GET /forum/example_message_2 200
+[info] [<0.107.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_2" 200
+[info] [<0.111.0>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.101.0>] 127.0.0.1 - - GET /forum/example_message_2 200
+[info] [<0.105.0>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_2" 200
+[info] [<0.18168.2>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18169.2>] 127.0.0.1 - - GET /forum/example_message_2 200
+[info] [<0.18170.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_2" 200
+[info] [<0.18236.2>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18247.2>] 127.0.0.1 - - GET /forum/example_message_2 200
+[info] [<0.18248.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_2" 200
+[info] [<0.18367.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.18243.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.18365.2>] 127.0.0.1 - - GET /forum/ian 404
+[info] [<0.18238.2>] 127.0.0.1 - - POST /forum 201
+[info] [<0.8170.16>] 127.0.0.1 - - GET /forum/ian 200
+[info] [<0.173.0>] Starting index update for db: forum idx: _design/forum
+[info] [<0.173.0>] Index update finished for db: forum idx: _design/forum
+[info] [<0.8172.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.10783.13>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18244.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.8206.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.8207.16>] 127.0.0.1 - - GET /forum/example_message_1 200
+[info] [<0.18146.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_1" 200
+[info] [<0.18147.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.106.0>] 127.0.0.1 - - GET /forum/ian 200
+[info] [<0.9803.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.9807.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.8189.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.18249.2>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.8211.16>] 127.0.0.1 - - GET /forum/example_message_1 200
+[info] [<0.8188.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_1" 200
+[info] [<0.108.0>] 127.0.0.1 - - POST /forum 201
+[info] [<0.9817.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.9815.16>] 127.0.0.1 - - GET /forum/example_message_1 200
+[info] [<0.173.0>] Starting index update for db: forum idx: _design/forum
+[info] [<0.173.0>] Index update finished for db: forum idx: _design/forum
+[info] [<0.9816.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="example_message_1" 200
+[info] [<0.9852.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.9809.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18245.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.9813.16>] 127.0.0.1 - - POST /forum 201
+[info] [<0.9812.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.18145.2>] 127.0.0.1 - - GET /forum/dfea30ac4323b55276f423b68c0013f2 200
+[info] [<0.173.0>] Starting index update for db: forum idx: _design/forum
+[info] [<0.173.0>] Index update finished for db: forum idx: _design/forum
+[info] [<0.18239.2>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="dfea30ac4323b55276f423b68c0013f2" 200
+[info] [<0.9878.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forums 200
+[info] [<0.9849.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.9850.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_posts?key="songs"&descending=true 200
+[info] [<0.9957.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.9958.16>] 127.0.0.1 - - GET /forum/dfea30ac4323b55276f423b68c0013f2 200
+[info] [<0.9851.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="dfea30ac4323b55276f423b68c0013f2" 200
+[info] [<0.9879.16>] 127.0.0.1 - - POST /forum 201
+[info] [<0.9936.16>] 127.0.0.1 - - GET /forum/songs 200
+[info] [<0.9937.16>] 127.0.0.1 - - GET /forum/dfea30ac4323b55276f423b68c0013f2 200
+[info] [<0.173.0>] Starting index update for db: forum idx: _design/forum
+[info] [<0.9938.16>] 127.0.0.1 - - GET /forum/_design/forum/_view/forum_replies?key="dfea30ac4323b55276f423b68c0013f2" 200
+[info] [<0.173.0>] Index update finished for db: forum idx: _design/forum

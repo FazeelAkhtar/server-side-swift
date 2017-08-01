@@ -1,0 +1,70 @@
+
+Apache CouchDB 1.6.0 (LogLevel=info) is starting.
+Apache CouchDB has started. Time to relax.
+[info] [<0.33.0>] Apache CouchDB has started on http://0.0.0.0:5984/
+[info] [<0.118.0>] 172.17.0.1 - - GET / 200
+[info] [<0.118.0>] 172.17.0.1 - - GET /favicon.ico 200
+[info] [<0.190.0>] 172.17.0.1 - - GET / 200
+[info] [<0.313.0>] 172.17.0.1 - - GET / 200
+[error] [<0.496.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.124.0>] 172.17.0.1 - - GET /polls 404
+[info] [<0.495.0>] 172.17.0.1 - - PUT /polls 201
+[info] [<0.475.0>] 172.17.0.1 - - GET /polls 200
+[info] [<0.526.0>] 172.17.0.1 - - DELETE /polls 200
+[error] [<0.628.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.123.0>] 172.17.0.1 - - GET /polls 404
+[info] [<0.125.0>] 172.17.0.1 - - PUT /polls 201
+[info] [<0.539.0>] 172.17.0.1 - - PUT /polls 412
+[info] [<0.622.0>] 172.17.0.1 - - DELETE /polls 200
+[error] [<0.667.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.627.0>] 172.17.0.1 - - GET /polls 404
+[error] [<0.921.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.661.0>] 172.17.0.1 - - POST /polls 404
+[error] [<0.969.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.666.0>] 172.17.0.1 - - POST /polls 404
+[error] [<0.1020.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.646.0>] 172.17.0.1 - - GET /polls 404
+[error] [<0.1042.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.126.0>] 172.17.0.1 - - POST /polls 404
+[error] [<0.1084.0>] Could not open file /var/lib/couchdb/polls.couch: no such file or directory
+[info] [<0.1019.0>] 172.17.0.1 - - POST /polls 404
+[info] [<0.658.0>] 172.17.0.1 - - PUT /polls 201
+[info] [<0.1095.0>] 172.17.0.1 - - POST /polls 201
+[info] [<0.920.0>] 172.17.0.1 - - GET /polls 200
+[info] [<0.1083.0>] 172.17.0.1 - - GET /polls/7611d9d72ee6adb4b92a25f109000514 200
+[error] [<0.1041.0>] attempted upload of invalid JSON (set log_level to debug to log it)
+[info] [<0.1041.0>] 172.17.0.1 - - POST /polls 400
+[info] [<0.1229.0>] 172.17.0.1 - - POST /polls 201
+[info] [<0.1396.0>] 172.17.0.1 - - POST /polls 409
+[info] [<0.1434.0>] 172.17.0.1 - - DELETE /polls/7611d9d72ee6adb4b92a25f109000514?rev=2-28f0a0a699b4f093b717df88c86f2e8c 200
+[info] [<0.127.0>] 172.17.0.1 - - GET /polls/7611d9d72ee6adb4b92a25f109000514 404
+
+Apache CouchDB 1.6.0 (LogLevel=info) is starting.
+Apache CouchDB has started. Time to relax.
+[info] [<0.33.0>] Apache CouchDB has started on http://0.0.0.0:5984/
+[info] [<0.114.0>] 172.17.0.1 - - GET /polls 200
+[info] [<0.129.0>] 172.17.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.240.0>] 172.17.0.1 - - PUT /polls 412
+[info] [<0.404.0>] 172.17.0.1 - - POST /polls 415
+[info] [<0.128.0>] 172.17.0.1 - - POST /polls 201
+[info] [<0.492.0>] 172.17.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.209.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.124.0>] 172.17.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.5688.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.125.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.5783.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.434.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.5785.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.126.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.5670.0>] 127.0.0.1 - - POST /polls 201
+[info] [<0.6106.0>] 172.17.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.507.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.5773.0>] 127.0.0.1 - - POST /polls 201
+[info] [<0.120.0>] 172.17.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.15991.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.122.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.119.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.16482.0>] 172.17.0.1 - - GET /polls/_all_docs?include_docs=true 200
+[info] [<0.4566.2>] 127.0.0.1 - - GET /polls/d6ae1b7ddde763b0374c6b4c1d001f6a 200
+[info] [<0.4636.2>] 127.0.0.1 - - PUT /polls/d6ae1b7ddde763b0374c6b4c1d001f6a?rev=1-02879d0eb859c22d7a5b2ac4e6a3d196 201
+[info] [<0.117.0>] 127.0.0.1 - - GET /polls/_all_docs?include_docs=true 200

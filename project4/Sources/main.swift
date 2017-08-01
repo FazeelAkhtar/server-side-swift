@@ -11,7 +11,11 @@ import SwiftyJSON
 import Stencil
 
 func send(error: String, code: HTTPStatusCode, to response: RouterResponse) {
-  _ = try? response.status(code).send(error).end()
+  
+  var pageContext = [String: String]()
+  pageContext["error"] = error
+
+  _ = try? response.status(code).render("error", context: pageContext).end()
 }
 
 func context(for request: RouterRequest) -> [String: Any] {
@@ -339,7 +343,6 @@ router.post("/forum/:forumid/:messageid?") {
       }
     }
   }
-
 }
 
 Kitura.addHTTPServer(onPort: 8090, with: router)

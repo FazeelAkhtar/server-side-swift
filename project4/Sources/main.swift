@@ -11,7 +11,7 @@ import SwiftyJSON
 import Stencil
 
 func send(error: String, code: HTTPStatusCode, to response: RouterResponse) {
-  
+
   var pageContext = [String: String]()
   pageContext["error"] = error
 
@@ -194,7 +194,7 @@ router.post("/users/login") {
         // load the salt and password from the document
         let savedSalt = doc["salt"].stringValue
         let savedPassword = doc["password"].stringValue
-      
+
         // hash the user's input password with the saved salf; this should produce the same password we have saved
         let testPassword = password(from: fields["password"]!, salt: savedSalt)
 
@@ -264,8 +264,9 @@ router.post("/users/create") {
         defer { next() }
 
         if let doc = doc {
-          // send back a message that everything worked
-          response.send("OK!")
+          // set session username to newly created one, and redirect to home
+          request.session!["username"].string = fields["username"]!
+          _ = try? response.redirect("/")
         } else {
           // error
           send(error: "User could not be created", code: .internalServerError, to: response)

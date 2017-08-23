@@ -6,4 +6,5 @@
 	<h1>Uh-oh!</h1>
 	<p>It looks like there was an error.</p>
 	<p>{{ error }}</p>
+	<p><a href="javascript:history.back()">Click here to go back.</a></p>
 {% endblock %}

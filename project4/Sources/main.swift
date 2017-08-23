@@ -123,6 +123,11 @@ router.post("/forum/create") {
         return
     }
 
+    guard fields["forum_id"]! != "create" else {
+        send(error: "Invalid forum name: create is reserved", code: .badRequest, to: response)
+        return
+    }
+
     // "_id": "videos",
     // "type": "forum",
     // "name": "Taylor's videos"

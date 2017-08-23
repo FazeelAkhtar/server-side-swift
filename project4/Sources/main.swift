@@ -257,7 +257,7 @@ router.post("/users/login") {
           _ = try? response.redirect("/")
         } else {
           // wrong password!
-          print("No match")
+          send(error: "Wrong combination of username and password. Or is there even a user at all? Hmmm...", code: .badRequest, to: response)
         }
       }
     }

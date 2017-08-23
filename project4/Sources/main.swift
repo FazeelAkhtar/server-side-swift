@@ -102,6 +102,59 @@ router.get("/") {
   }
 }
 
+router.get("/forum/create") {
+    request, response, next in
+    defer { next() }
+
+    try response.render("forum-create", context: [:]).end()
+}
+
+router.post("/forum/create") {
+    request, response, next in
+    defer { next() }
+
+    guard let fields = getPost(for: request, fields: ["forum_id"]) else {
+        send(error: "Missing required fields", code: .badRequest, to: response)
+        return
+    }
+
+    guard let username = request.session?["username"].string else {
+        send(error: "You are not logged in", code: .forbidden, to: response)
+        return
+    }
+
+    // "_id": "videos",
+    // "type": "forum",
+    // "name": "Taylor's videos"
+
+    database.retrieve(fields["forum_id"]!) { doc, error in
+      if let error = error {
+        // forum doesn't exist
+        var newForum = [String: String]()
+        newForum["type"] = "forum"
+        newForum["_id"] = fields["forum_id"]!
+        newForum["name"] = "Taylor's " + newForum["_id"]!
+
+        let newForumJSON = JSON(newForum)
+
+        // send it off to CouchDB
+        database.create(newForumJSON) { id, revision, doc, error in
+            defer { next() }
+
+            if let error = error {
+                send(error: "Forum could not be created", code: .internalServerError, to: response)
+            } else if let id = id {
+                // the new document was created successfully!
+                _ = try? response.redirect("/forum/\(fields["forum_id"]!)/")
+            }
+        }
+        } else {
+            //forum exists already
+            send(error: "Forum already exists", code: .badRequest, to: response)
+        }
+    }
+}
+
 router.get("/forum/:forumid") {
   request, response, next in
 

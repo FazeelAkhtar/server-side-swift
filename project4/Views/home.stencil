@@ -10,6 +10,8 @@
       {% for forum in forums %}
         <li><a href="/forum/{{ forum.value._id }}">{{ forum.value.name }}</a></li>
       {% endfor %}
+        <p />
+        <a href="/forum/create">Create a new forum...</a>
     </ul>
   {% else %}
     <a href="/users/login">Please log in.</a>

@@ -1,0 +1,9 @@
+{% extends "master.stencil" %}
+
+{% block title %}Error!{% endblock %}
+
+{% block body %}
+	<h1>Uh-oh!</h1>
+	<p>It looks like there was an error.</p>
+	<p>{{ error }}</p>
+{% endblock %}

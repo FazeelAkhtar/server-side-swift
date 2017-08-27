@@ -1,0 +1,38 @@
+<html>
+<body>
+
+{% debug %}
+
+{% if haters %}
+    <p>Haters are {{ haters }}.</p>
+{% endif %}
+
+{% if fakers %}
+    <p>Fakers are {{ fakers }}.</p>
+{% endif %}
+
+{% for name in names %}
+    {% if forloop.first %}
+        <li>The first name is {{ name|uppercase }}</li>
+    {% else %}
+        {% if forloop.last %}
+            <li>The last name is {{ name|uppercase }}</li>
+        {% else %}
+            <li>Name number {{ forloop.counter }} is {{ name|uppercase }}</li>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+<p>There are {{ names.count }} names:</p>
+<p>The first name is {{ names.first }}</p>
+<p>The second name is {{ names.1 }}</p>
+<p>The third name is {{ names.2 }}</p>
+
+{# This is a comment and therefore will be ignored. #}
+
+{% autoescape %}
+    <h1>This is a test</h1>
+{% endautoescape %}
+
+</body>
+</html>

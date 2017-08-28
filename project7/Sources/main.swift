@@ -19,6 +19,38 @@ func connectToDatabase() throws -> (Database, Connection) {
     return (mysql, connection)
 }
 
+func password(from str: String, salt: String) -> String {
+  let key = PBKDF.deriveKey(fromPassword: str, salt: salt, prf: .sha512, rounds: 250_000, derivedKeyLength: 64)
+  return CryptoUtils.hexString(from: key)
+}
+
+extension String {
+  func removingHTMLEncoding() -> String {
+    let result = self.replacingOccurrences(of: "+", with: "")
+    return result.removingPercentEncoding ?? result
+  }
+}
+
+func getPost(for request: RouterRequest, fields: [String]) -> [String: String]? {
+  guard let values = request.body else { return nil }
+  guard case .urlEncoded(let body) = values else { return nil }
+
+  var result = [String: String]()
+
+  for field in fields {
+    if let value = body[field]?.trimmingCharacters(in: .whitespacesAndNewlines) {
+      if value.characters.count > 0 {
+        result[field] = value.removingHTMLEncoding()
+        continue
+      }
+    }
+
+    return nil
+  }
+
+  return result
+}
+
 HeliumLogger.use()
 let router = Router()
 router.post("/", middleware: BodyParser())
@@ -64,6 +96,8 @@ router.get("/:user/posts") {
         Log.warning("Failed to send /:user/posts for \(user): \(error.localizedDescription)")
     }
 }
+
+
 
 Kitura.addHTTPServer(onPort: 8090, with: router)
 Kitura.run()

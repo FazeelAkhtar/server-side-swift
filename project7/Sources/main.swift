@@ -19,6 +19,10 @@ func connectToDatabase() throws -> (Database, Connection) {
     return (mysql, connection)
 }
 
+func send(error: String, code: HTTPStatusCode, to response: RouterResponse) {
+    _ = try? response.status(code).send(error).end()
+}
+
 func password(from str: String, salt: String) -> String {
   let key = PBKDF.deriveKey(fromPassword: str, salt: salt, prf: .sha512, rounds: 250_000, derivedKeyLength: 64)
   return CryptoUtils.hexString(from: key)
@@ -94,6 +98,59 @@ router.get("/:user/posts") {
         try response.status(.OK).send(json: json).end()
     } catch {
         Log.warning("Failed to send /:user/posts for \(user): \(error.localizedDescription)")
+    }
+}
+
+router.post("/login") {
+    request, response, next in
+    defer { next() }
+
+    // make sure our two required fields exist
+    guard let fields = getPost(for: request, fields: ["username", "password"]) else {
+        send(error: "Missing required fields", code: .badRequest, to: response)
+        return
+    }
+
+    // connect to MySQL
+    let (db, connection) = try connectToDatabase()
+
+    // pull out the password and salt for the user
+    let query = "SELECT `password`, `salt` FROM `users` WHERE `id` = ?;"
+    let users = try db.execute(query, [fields["username"]!], connection)
+
+    // ensure we got a row back
+    guard let user = users.first else { return }
+
+    // pull both values out from the MySQL result
+    guard let savedPassword = user["password"]?.string else { return }
+    guard let savedSalt = user["salt"]?.string else { return }
+
+    // use the saved salt to create a hash from the password that was submitted
+    let testPassword = password(from: fields["password"]!, salt: savedSalt)
+
+    // compare the new hash against the existing one
+    if savedPassword == testPassword {
+        // success - clear out any expired tokens
+        try db.execute("DELETE FROM `tokens` WHERE `expiry` < NOW()", [], connection)
+
+        // generate a new random string for this token
+        let token = UUID().uuidString
+
+        // add it to our database, alongside the username and a fresh expiry date
+        try db.execute("INSERT INTO `tokens` VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 1 DAY));", [token, fields["username"]!], connection)
+
+        // send the token back to the user
+        var result = [String: Any]()
+        result["status"] = "ok"
+        result["token"] = token
+
+        let json = JSON(result)
+
+        do {
+            try response.status(.OK).send(json: json).end()
+        } catch {
+            Log.warning("Failed to send /login for \(user): \(error.localizedDescription)")
+        }
     }
 }
 

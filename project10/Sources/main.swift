@@ -120,7 +120,7 @@ router.post("/signup") {
 
 	// bail out if we're missing GitHub authentication details or a valid form submission
 	guard let profile = request.userProfile else { return }
-	guard let fields = getPost(for: request, fields: ["languages"]) else { return }
+	guard let fields = getPost(for: request, fields: ["language"]) else { return }
 
 	// check if the user ID already has an account
 	database.retrieve(profile.id) { user, error in 
@@ -196,6 +196,76 @@ router.get("/projects/delete/:id/:rev") {
 	database.delete(id, rev: rev) { error in 
 		_ = try? response.redirect("/projects/mine")
 	}
+}
+
+router.get("/projects/new") {
+	request, response, next in
+	defer { next() }
+
+	guard let profile = getUserProfile(for: request, with: response) else { return }
+
+	var pageContext = context(for: request)
+	pageContext["page_projects_new"] = true
+
+	try response.render("projects_new", context: pageContext)
+}
+
+router.post("/projects/new") {
+	request, response, next in
+
+	// 1: check we have a fully authenticated user
+	guard let profile = getUserProfile(for: request, with: response) else { return }
+
+	// 2: make sure all three fields are present
+	guard let fields = getPost(for: request, fields: ["name", "description", "language"]) else {
+		send(error: "Missing required fields", code: .badRequest, to: response)
+		return
+	}
+
+	// 3: base our new document on their submitted fields
+	var newProject = fields
+
+	// 4: add "type" and "owner" so we can create CouchDB views, the convert to JSON
+	newProject["type"] = "project"
+	newProject["owner"] = profile["login"].stringValue
+	let newDocument = JSON(newProject)
+
+	// 5: send the document to CouchDB
+	database.create(newDocument) { id, revision, doc, error in
+		// 6: show an error or redirect depending on the result
+		if let error = error {
+			send(error: error.localizedDescription, code: .internalServerError, to: response)
+			return
+		}
+
+		_ = try? response.redirect("/projects/mine")
+		next()
+	}
+}
+
+router.get("/projects/all") {
+	request, response, next in
+	defer { next() }
+
+	guard let profile = getUserProfile(for: request, with: response) else { return }
+	var pageContext = context(for: request)
+
+	// attempt to find all projects
+	database.queryByView("projects", ofDesign: "instantcoder", usingParameters: []) { projects, error in
+		if let error = error {
+			// this ought never to happen, but just in case...
+			send(error: error.localizedDescription, code: .internalServerError, to: response)
+		} else if let projects = projects {
+			// store projects in the context ready for Stencil
+			pageContext["projects"] = projects["rows"].arrayObject
+		}
+	}
+
+	// activate the "My Projects tab"
+	pageContext["page_projects_all"] = true
+
+	// render the context using projects_mine.stencil
+	try response.render("projects_all", context: pageContext)
 }
 
 Kitura.addHTTPServer(onPort: 8090, with: router)
